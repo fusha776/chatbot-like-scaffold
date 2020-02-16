@@ -47,8 +47,6 @@ menu, nav, section, summary, time, mark, audio, video {
     background-color: orchid;
 }
 
-
-
 #len-test {
     width: 100%;
     background-color: lightcyan;
@@ -56,4 +54,10 @@ menu, nav, section, summary, time, mark, audio, video {
 
 p {
  color: aquamarine;   
+}
+
+.msg-window {
+  height: 210px;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }

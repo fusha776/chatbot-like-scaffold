@@ -27,8 +27,10 @@ class MsgWindow extends Component {
       msgLogs: [{msg: "初期値",
                  isAnswer: true}],
     }
+    this.windowBox = React.createRef();
     this.changeMsg = this.changeMsg.bind(this);
     this.sendMsg = this.sendMsg.bind(this);
+    this.scrollToLatest = this.scrollToLatest.bind(this);
   }
 
   changeMsg(event) {
@@ -45,13 +47,18 @@ class MsgWindow extends Component {
         this.preInquiryNo = res.data.inquiry_no;
         nextLogs.push({msg: res.data.message, isAnswer: true});
         this.setState({msgLogs: nextLogs});
+        this.scrollToLatest();
       });
+  }
+
+  scrollToLatest() {
+    this.windowBox.current.scrollTop = this.windowBox.current.scrollHeight;
   }
 
   render() {
     return (
     <div className="section">
-      <div className="container">
+      <div className="container msg-window" ref={this.windowBox}>
         <Messages args={this.state} />
         <form name="name_form" onSubmit={this.sendMsg}>
           <input type="text" onChange={this.changeMsg} />
