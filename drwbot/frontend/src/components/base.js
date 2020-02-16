@@ -88,8 +88,6 @@ class Messages extends Component {
         <div className="column is-8 asking-msg is-offset-3" key={number++}>{msgLog.msg}.</div>
       )
     );
-    console.log("--- listの中身 ---");
-    console.log(msgTags);
     return (
       <div className="columns is-multiline">
         {msgTags}        
