@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<title>sample</title>
+<style>
+  div {
+    position: fixed;
+    top: 0;
+    right: 0;
+  }
+</style>
+<script>
+  var myTimer;
+  function autoScroll(s) {
+    window.clearInterval(myTimer);
+    if(s !== 0) {
+      myTimer = window.setInterval(function() {
+        var before = document.documentElement.scrollTop || document.body.scrollTop;
+        window.scrollBy(0, s);
+        var after = document.documentElement.scrollTop || document.body.scrollTop;
+        if(before === after) {
+          window.clearInterval(myTimer);
+        }
+      }, 50);
+    }
+  }
+  
+  const moveTo = () => {
+      alert(document.documentElement.scrollTop);
+      document.documentElement.scrollTop = 0;
+  }
+  
+</script>
+<body>
+<div>
+  <input type="button" value="up" onclick="autoScroll(-10);"><br>
+  <input type="button" value="stop" onclick="autoScroll(0);"><br>
+  <input type="button" value="down" onclick="autoScroll(10);">
+  <input type="button" value="test" onclick="moveTo();">
+</div>
+
+<p>
+  hoge
+  <br><br><br><br><br><br><br><br><br><br>
+  <br><br><br><br><br><br><br><br><br><br>
+  <br><br><br><br><br><br><br><br><br><br>
+  <br><br><br><br><br><br><br><br><br><br>
+  <br><br><br><br><br><br><br><br><br><br>
+  <br><br><br><br><br><br><br><br><br><br>
+  <br><br><br><br><br><br><br><br><br><br>
+  <br><br><br><br><br><br><br><br><br><br>
+  <br><br><br><br><br><br><br><br><br><br>
+  <br><br><br><br><br><br><br><br><br><br>
+  fuga
+</p>
+</body>
+</html>

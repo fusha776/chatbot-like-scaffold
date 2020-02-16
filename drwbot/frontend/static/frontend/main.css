@@ -1,0 +1,59 @@
+/* normalize */
+html, body, div, span, object, iframe, 
+h1, h2, h3, h4, h5, h6, p, 
+blockquote, pre, abbr, address, cite, code, 
+del, dfn, em, img, ins, kbd, q, samp, small, strong, 
+sub, sup, var, b, i, 
+dl, dt, dd, ol, ul, li, fieldset, 
+form, label, legend, table, caption, tbody, tfoot, thead, 
+tr, th, td, article, aside, canvas, details, 
+figcaption, figure, footer, header, hgroup, 
+menu, nav, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+
+
+.main-header {
+    width: 100%;
+    min-height: 100px;
+    background-color: olive;
+}
+
+.navi {
+    width: 100%;
+    min-height: 50px;
+    text-align: center;
+    background-color: palegoldenrod;
+}
+
+.navi li {
+    min-width: 10%;
+    padding-right: 2em;
+    padding-left: 0.5em;
+    margin: 0.75em 0 0.75em 0;
+    min-height: 30px;
+    background-color: papayawhip;
+}
+
+.main-footer {
+    width: 100%;
+    min-height: 30px;
+    background-color: orchid;
+}
+
+
+
+#len-test {
+    width: 100%;
+    background-color: lightcyan;
+}
+
+p {
+ color: aquamarine;   
+}

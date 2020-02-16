@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+<head>
+  <meta charset="utf-8">
+  <meta name="discription" content="ここが Django と React の接点">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+  <link rel="stylesheet" type="text/css" href="{% static "frontend/main.css" %}">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <title>Dhango DRF: Quickstart</title>
+</head>
+<body>
+  <section class="section">
+    <div class="container">
+      <div id="app" class="columns"><!-- React --></div>
+    </div>
+  </section>
+  
+  <!-- ajax 通信のテスト jquery -->
+  <!-- <section class="section">
+    <form name="name_form" action="/ajax/inquiry/" method="POST">
+      {% csrf_token %}
+      <input type="text" id="id_input_text" name="name_input_text" value="999.99">
+      <input class="button" type="submit"> 
+    </form>
+    <span id="id_div_ajax_response">
+      AJAX RESPONSE
+    </span>
+  </section> -->
+
+  <!-- ajax 通信のテスト axios -->
+    <section class="section">
+    <form name="name_form_2" action="/ajax/inquiry/" onsubmit="kick_axios('ぽよよ')">
+      <!-- {% csrf_token %} -->
+      <input type="text" id="id_input_text2" name="name_input_text" value="ぽよよ">
+      <input class="button" type="submit"> 
+    </form>
+    <span id="id_div_ajax_response2">
+      AJAX RESPONSE2
+    </span>
+  </section>
+</body>
+<script src="{% static "frontend/main.js" %}"></script>
+
+
+<!-- axios製 -->
+<script>
+  function kick_axios(msg) {
+    console.log("axios in");
+    event.preventDefault();
+    var form = $("form");
+    console.log(form.serialize());
+
+    // POSTのとき
+    // axios.post("/ajax/inquiry/",
+    //   {name_input_text: "ぽよjson"}
+    //   // "name_input_text=ぽよstr"
+    //   // form.serialize()
+    // )
+    axios.get("/ajax/inquiry?name_input_text=ぽよい")
+      .then((res) => {
+        console.log(res);
+        data = res.data;
+        $("#id_div_ajax_response2").text(data.message);
+      });
+  }
+      // f
+</script>
+
+<!-- axios製 ちょっとIOがよくわからん-->
+
+<!-- jquery製 -->
+<script>
+  $("form1").submit( function(event) {
+    alert("jquery in");
+    event.preventDefault();
+    var form = $(this);
+    alert(form);
+    alert(form.serialize());
+    $.ajax({
+      url: form.prop("action"),
+      method: form.prop("method"),
+      data: form.serialize(),
+      timeout: 10000,
+      dataType: "text",
+    })
+    .done( function(data) {
+      alert("done");
+      data = JSON.parse(data)
+      alert(data.message);
+      $("#id_div_ajax_response").text(data.message);
+    })
+  });
+</script>
+</html>
+
+
+
